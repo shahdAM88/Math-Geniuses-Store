@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>إدارة الطالبة | معمل الرياضيات</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="student-page">
+<a href="index.html" class="home-link">
+  الرجوع للرئيسية
+</a>
+        <a href="class.html" class="back-link">
+            → العودة للفصل
+        </a>
+
+        <section class="student-profile">
+
+            <div class="student-profile-avatar">
+                👩🏻‍🎓
+            </div>
+
+            <p class="student-class-name" id="studentClassName">
+                اسم الفصل
+            </p>
+
+            <h1 id="studentPageName">
+                اسم الطالبة
+            </h1>
+<button type="button" id="editStudentNameBtn" class="edit-student-name-btn">
+    ✏️ تعديل الاسم
+</button>
+<button type="button" id="deleteStudentBtn" class="delete-student-btn">
+    🗑️ حذف الطالبة
+</button>
+<a href="rewards.html" class="open-rewards-btn">
+    🎁 فتح متجر المكافآت الآن
+</a>
+            <div class="points-balance">
+
+                <span class="points-star">⭐</span>
+
+                <div>
+                    <strong id="studentPagePoints">0</strong>
+                    <span>نقطة</span>
+                </div>
+
+                <p>الرصيد الحالي</p>
+
+            </div>
+
+        </section>
+
+
+        <section class="points-management">
+
+            <div class="points-title">
+                <h2>إدارة النقاط</h2>
+
+                <p>
+                    أضيفي أو اخصمي نقاط الطالبة
+                </p>
+            </div>
+
+
+            <div class="points-actions">
+
+                <div class="points-input-group">
+
+                    <label for="pointsAmount">
+                        عدد النقاط
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pointsAmount"
+                        min="1"
+                        placeholder="مثال: 5"
+                    >
+
+                </div>
+
+
+                <div class="points-buttons">
+
+                    <button
+                        class="add-points-btn"
+                        id="addPointsBtn"
+                    >
+                        ＋ إضافة نقاط
+                    </button>
+
+                    <button
+                        class="remove-points-btn"
+                        id="removePointsBtn"
+                    >
+                        − خصم نقاط
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+<!-- سجل الطالبة -->
+<section class="student-history-section">
+
+    <div class="student-history-title">
+        <h2>📋 سجل الطالبة</h2>
+        <p>جميع عمليات النقاط والمكافآت</p>
+    </div>
+
+    <div
+        class="student-history-list"
+        id="studentHistoryList">
+    </div>
+
+    <p
+        class="empty-student-history"
+        id="emptyStudentHistory">
+        لا توجد عمليات مسجلة حتى الآن 🤍
+    </p>
+
+</section>
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

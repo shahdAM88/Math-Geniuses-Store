@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>فصولي | عـباقرة الرياضيات</title>
+
+    <!-- خط Alexandria -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- نفس ملف CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="classes-page">
+
+        <a href="index.html" class="back-link">
+            → العودة للرئيسية
+        </a>
+
+        <section class="classes-header">
+            <span class="classes-small-title">✦ إدارة الفصول</span>
+
+            <h1>فصولي</h1>
+
+            <p>
+                أضيفي فصولك وابدئي رحلة الإنجاز مع طالباتك ♡
+            </p>
+        </section>
+
+
+        <section class="classes-container">
+
+            <!-- هنا ستظهر الفصول لاحقًا -->
+            <div class="classes-grid" id="classesGrid"></div>
+
+
+            <!-- يظهر إذا لم تتم إضافة أي فصل -->
+            <div class="empty-classes" id="emptyClasses">
+
+                <div class="empty-icon">📚</div>
+
+                <h2>لا توجد فصول حتى الآن</h2>
+
+                <p>
+                    أضيفي أول فصل للبدء بإدارة الطالبات والنقاط
+                </p>
+
+            </div>
+
+
+            <button class="add-class-btn" id="addClassBtn">
+                <span>＋</span>
+                إضافة فصل
+            </button>
+
+        </section>
+<!-- النسخ الاحتياطي -->
+<section class="backup-section">
+
+    <div class="backup-title">
+        <h2>🛡️ حماية البيانات</h2>
+        <p>احتفظي بنسخة من بيانات المتجر واستعيديها عند الحاجة</p>
+    </div>
+
+    <div class="backup-actions">
+
+        <button
+            type="button"
+            id="exportBackupBtn"
+            class="export-backup-btn">
+            📥 تصدير نسخة احتياطية
+        </button>
+
+        <button
+            type="button"
+            id="importBackupBtn"
+            class="import-backup-btn">
+            📤 استعادة نسخة احتياطية
+        </button>
+
+        <input
+            type="file"
+            id="backupFileInput"
+            accept=".json,application/json"
+            hidden>
+
+    </div>
+
+</section>
+    </main>
+
+<!-- نافذة إضافة فصل -->
+<div class="modal-overlay" id="classModal">
+
+    <div class="class-modal">
+
+        <button class="close-modal" id="closeClassModal">
+            ×
+        </button>
+
+        <div class="modal-icon">📚</div>
+
+        <h2>إضافة فصل جديد</h2>
+
+        <p>
+            اكتبي اسم الفصل الذي تريدين إضافته
+        </p>
+
+        <input
+            type="text"
+            id="classNameInput"
+            placeholder="مثال: الصف الأول / أ"
+            maxlength="40"
+        >
+
+        <button class="save-class-btn" id="saveClassBtn">
+            إضافة الفصل
+        </button>
+
+    </div>
+
+</div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

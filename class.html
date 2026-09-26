@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>إدارة الفصل | عـباقرة الرياضيات</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"
+    rel="stylesheet"
+>
+<link
+    href="https://fonts.googleapis.com/css2?family=Marhey:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="class-page">
+<a href="index.html" class="home-link">
+     الرجوع للرئيسية
+</a>
+        <a href="classes.html" class="back-link">
+            → العودة للفصول
+        </a>
+
+   
+<section class="classes-header"> 
+    
+    <button type="button" id="monthStarBtn" class="month-star-btn">
+    <span>نجمة</span>
+
+    <span>الشهر</span>
+</button>
+            <span class="class-small-title">
+                ✦ إدارة الفصل
+            </span>
+
+            <h1 id="currentClassName">
+                اسم الفصل
+            </h1>
+
+            <p>
+                <span id="currentStudentsCount">0</span>
+                طالبة
+            </p>
+
+        </section>
+
+
+        <section class="students-section">
+
+            <div class="students-section-header">
+
+                <div>
+                    <h2>طالبات الفصل</h2>
+
+                    <p>
+                        إدارة الطالبات ومتابعة نقاطهن
+                    </p>
+                </div>
+
+                <button
+                    class="add-student-btn"
+                    id="addStudentBtn"
+                >
+                    ＋ إضافة طالبة
+                </button>
+
+            </div>
+<!-- إضافة نقاط للمحددات -->
+<div class="group-points-bar">
+
+    <div class="group-points-heading">
+
+        <div class="group-heading-text">
+            <h3>⭐ وضـع الـحـصة</h3>
+            <p>لوحة سريعة لإضافة النقاط لطالبة أو اكثر </p>
+        </div>
+
+        <label class="select-all-label">
+            <input type="checkbox" id="selectAllStudents">
+            تحديد الكل
+        </label>
+
+    </div>
+
+
+    <div class="group-points-actions">
+
+        <!-- 1: سبب النقاط -->
+        <div class="group-action-block">
+
+            <span class="group-step-title">
+                <b>1.</b> سبب النقاط
+            </span>
+
+            <select id="pointsReason">
+                <option value="مشاركة مميزة">مشاركة مميزة</option>
+                <option value="حل الواجب">حل الواجب</option>
+                <option value="الالتزام والهدوء">الالتزام والهدوء</option>
+                <option value="مساعدة زميلة">مساعدة زميلة</option>
+                <option value="تفوق في اختبار">تفوق في اختبار</option>
+                <option value="other">أخرى...</option>
+            </select>
+
+            <input
+                type="text"
+                id="customReason"
+                placeholder="اكتبي السبب"
+                style="display: none;"
+            >
+
+        </div>
+
+
+        <!-- 2: نقاط سريعة -->
+        <div class="group-action-block">
+
+            <span class="group-step-title">
+                <b>2.</b> نقاط سريعة
+            </span>
+
+            <div class="quick-group-buttons">
+
+                <button
+                    class="group-point-btn"
+                    data-points="1"
+                >
+                    +1
+                </button>
+
+                <button
+                    class="group-point-btn"
+                    data-points="2"
+                >
+                    +2
+                </button>
+
+                <button
+                    class="group-point-btn"
+                    data-points="5"
+                >
+                    +5
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 3: عدد مخصص -->
+        <div class="group-action-block">
+
+            <span class="group-step-title">
+                <b>3.</b> أو أدخلي عددًا مخصصًا
+            </span>
+
+            <div class="custom-points-row">
+
+                <input
+                    type="number"
+                    id="customGroupPoints"
+                    min="1"
+                    placeholder="عدد النقاط"
+                >
+
+                <button id="addCustomGroupPoints">
+                    ＋ إضافة
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="group-points-note">
+        ⓘ سيتم إضافة النقاط لجميع الطالبات المحددات
+    </div>
+
+</div>
+
+            <div
+                class="students-grid"
+                id="studentsGrid"
+            ></div>
+
+
+            <div
+                class="empty-students"
+                id="emptyStudents"
+            >
+
+                <div class="empty-student-icon">
+                    👩🏻‍🎓
+                </div>
+
+                <h3>
+                    لا توجد طالبات حتى الآن
+                </h3>
+
+                <p>
+                    أضيفي أول طالبة للبدء بإدارة نقاط الفصل
+                </p>
+
+            </div>
+
+        </section>
+<!-- سجل الفصل العام -->
+<section class="class-history-section">
+
+    <div class="class-history-title">
+        <h2>📋 سجل الفصل</h2>
+        <p>جميع عمليات طالبات الفصل</p>
+    </div>
+
+    <div
+        class="class-history-list"
+        id="classHistoryList">
+    </div>
+
+    <p
+        class="empty-class-history"
+        id="emptyClassHistory">
+        لا توجد عمليات مسجلة في هذا الفصل حتى الآن 🤍
+    </p>
+
+</section>
+    </main>
+
+<!-- نافذة إضافة طالبة -->
+<div class="modal-overlay" id="studentModal">
+
+    <div class="class-modal">
+
+        <button
+            class="close-modal"
+            id="closeStudentModal"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon">👩🏻‍🎓</div>
+
+        <h2>إضافة طالبة</h2>
+
+        <p>
+            اكتبي اسم الطالبة لإضافتها إلى هذا الفصل
+        </p>
+
+        <input
+            type="text"
+            id="studentNameInput"
+            placeholder="اسم الطالبة"
+            maxlength="60"
+            autocomplete="off"
+        >
+
+        <button
+            class="save-class-btn"
+            id="saveStudentBtn"
+        >
+            إضافة الطالبة
+        </button>
+
+    </div>
+
+</div>
+</div>
+<!-- =========================
+     لعبة نجمة الشهر
+========================= -->
+
+<div id="monthStarGame" class="month-star-game">
+
+    <div class="month-star-game-box">
+
+        <button
+            type="button"
+            id="closeMonthStarGame"
+            class="close-star-game"
+            aria-label="إغلاق"
+        >
+            ×
+        </button>
+
+        <div class="star-game-icon">⭐</div>
+
+        <span class="star-game-small">
+            حان وقت الإعلان
+        </span>
+
+        <h2>من هي نجمة الشهر؟</h2>
+
+
+        <!-- هنا سيظهر العد التنازلي -->
+        <div
+            id="starCountdown"
+            class="star-countdown"
+        ></div>
+
+        <!-- هنا ستظهر الفائزة لاحقًا -->
+        <div
+            id="starWinnerResult"
+            class="star-winner-result"
+        ></div>
+
+    </div>
+
+</div>
+<!-- =========================
+     شهادة نجمة الشهر
+========================= -->
+
+<div id="starCertificateModal" class="star-certificate-modal">
+
+    <div class="certificate-window">
+
+        <!-- زر الإغلاق -->
+        <button
+            type="button"
+            id="closeStarCertificate"
+            class="close-certificate"
+            aria-label="إغلاق"
+        >
+            ×
+        </button>
+
+
+        <!-- الشهادة -->
+        <div id="starCertificate" class="star-certificate">
+<!-- الزخارف الداخلية -->
+<div class="certificate-ornament certificate-ornament-top">
+    ❦ ───── ✦ ───── ❦
+</div>
+
+<div class="certificate-side-ornament ornament-right">
+    ❧
+</div>
+
+<div class="certificate-side-ornament ornament-left">
+    ❧
+</div>
+
+
+<!-- عنوان الشهادة -->
+<h2 class="certificate-title" >
+    شهادة شكر وتقدير
+</h2>
+<div class="certificate-divider">
+    <span></span>
+    <b>✦</b>
+    <span></span>
+</div>
+
+
+<!-- مقدمة -->
+<p class="certificate-presented">
+    تُهدى هذه الشهادة إلى
+</p>
+
+
+<!-- اسم الطالبة -->
+<div class="certificate-name-area">
+
+    <div
+        id="certificateStudentName"
+        class="certificate-student-name"
+    >
+        اسم الطالبة
+    </div>
+
+    <div class="certificate-name-line">
+        ❦
+    </div>
+
+</div>
+
+
+<!-- سبب التكريم -->
+<div class="certificate-achievement">
+
+    <p>
+        لحصولها على لقب
+        <strong>نجمة الشهر</strong>
+    </p>
+
+    <p>
+        وتحقيقها أعلى رصيد في الفصل
+    </p>
+
+</div>
+
+
+<!-- المعلومات السفلية -->
+<div class="certificate-bottom-info">
+
+    <!-- الرصيد -->
+    <div class="certificate-detail">
+
+        <span>
+            الرصيد
+        </span>
+
+        <strong id="certificatePoints">
+            —
+        </strong>
+
+    </div>
+
+
+    <!-- الميدالية -->
+    <div class="certificate-medal">
+
+        <div class="certificate-laurel">
+            ❧
+            <span>★</span>
+            ❧
+        </div>
+
+    </div>
+
+
+    <!-- الفصل -->
+    <div class="certificate-detail">
+
+        <span>
+            الفصل
+        </span>
+
+        <strong id="certificateClassName">
+            —
+        </strong>
+
+    </div>
+
+</div>
+
+
+<!-- العبارة الختامية -->
+<div class="certificate-final-message">
+    ✦ تستحقين التألق والتميّز ✦
+</div>
+
+
+<div class="certificate-store">
+عـباقرة الـريـاضيات
+</div>
+
+
+<div class="certificate-ornament certificate-ornament-bottom">
+    ❦ ───── ✦ ───── ❦
+</div>
+           
+        </div>
+
+
+        <!-- زر الطباعة -->
+        <button
+            type="button"
+            id="printStarCertificate"
+            class="print-certificate-btn"
+        >
+            🖨️ طباعة / حفظ PDF
+        </button>
+
+    </div>
+
+</div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
